@@ -64,6 +64,7 @@ export default function SimpleBottomNavigation({handlePathName, menus}: Navigati
             >
                 {newMenus.map((menu: any) => 
                     <BottomNavigationAction
+                    key={menu.id}
                     className={useClasses.mySelector}
                     style={{color: theme.palette.main.text1, marginBottom: '5px'}}
                     icon={menu.component} 

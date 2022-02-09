@@ -21,11 +21,11 @@ export default function Galleryogic() {
     }
 
     useEffect(() => {
-        axios.get(`/${process.env.REACT_APP_NOTION_DATABASE_PHOTOS_ID}`).then((res: any) => {
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_NOTION_DATABASE_PHOTOS_ID}`).then((res: any) => {
             setPhotos(res.data)
             setLoadingPhotos(false)
         })
-        axios.get(`/${process.env.REACT_APP_NOTION_DATABASE_PHOTOS_ID}/componente`).then((res: any) => {
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_NOTION_DATABASE_PHOTOS_ID}/componente`).then((res: any) => {
             setComponents({title: res.data.title, description: res.data.description})
             setLoadingComponents(false)
         })

@@ -13,7 +13,6 @@ export default function Gallery() {
     const styles = { display: 'flex', justifyContent: 'center', width: '100%', alignItems: 'center', height: '450px' }
     const theme = useTheme();
     const {sm, md, lg} = useGlobalMediaQuery();
-    console.log('COMPONENTS', states.components)
 
     return states.loadingGalleryPhotos ? (
         <Box sx={styles}>
