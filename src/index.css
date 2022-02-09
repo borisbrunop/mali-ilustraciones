@@ -5,9 +5,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+html {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+@font-face {
+  font-family: "Brastika";
+  src: local("Brastika"),
+  url("./uiModels/fonts/Brastika-Black.ttf") format("truetype");
+  /* font-weight: bold; */
+  }
+@font-face {
+  font-family: "Cocomat";
+  src: local("Cocomat"),
+  url("./uiModels/fonts/Cocomat-Light-trial.ttf") format("truetype");
+  /* font-weight: bold; */
+  }
