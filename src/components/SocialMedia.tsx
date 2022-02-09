@@ -18,7 +18,7 @@ export default function SocialMedia({fontSize}: SocialMediaTypes,) {
         <a target="_blank" href="https://www.instagram.com/malalaulart/?hl=es-la">
             <InstagramIcon style={{color: theme.palette.main.text1, fontSize, paddingLeft: '5px'}}/>
         </a>
-        <a target="_blank" href="mailto:borisbruno88@gmail.com?Subject=Email%20desde%20mali-ilustraciones.com">
+        <a target="_blank" href="mailto:malalaulart@gmail.com?Subject=Email%20desde%20mali-ilustraciones.com">
             <EmailOutlinedIcon style={{color: theme.palette.main.text1, fontSize, paddingLeft: '5px'}}/>
         </a>
     </>

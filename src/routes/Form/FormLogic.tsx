@@ -20,8 +20,6 @@ export const FormLogic = () => {
 
     const finalCities = itemsCi && itemsCi.map((item :any ) => ({name: item.name, value: item.name}));
 
-    console.log(itemsCi)
-
     const itemsArray:any = {city: finalCities, country: itemsCo}
 
 
