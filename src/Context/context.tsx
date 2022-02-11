@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import {Countries, GalleryPhotos, Components} from '../bussiness/interfaces'
+import {Countries, GalleryPhotos, Components, Menus} from '../bussiness/interfaces'
 import { PATHNAMES } from '../const/Pathnames'
 
 interface ActionsTypes {
@@ -11,7 +11,8 @@ interface StatesTypes {
     urls: GalleryPhotos[],
     loadingGalleryPhotos: boolean,
     loadingGalleryComponent: boolean,
-    components: Components
+    components: Components,
+    menus:   Menus[]
 }
 
 interface ContextTypes {
@@ -29,7 +30,8 @@ const Context = createContext({
         urls: [],
         loadingGalleryPhotos: true,
         loadingGalleryComponent: true,
-        components: {title: '', description: ''}
+        components: {title: '', description: ''},
+        menus: []
     }
     } as ContextTypes);
 
