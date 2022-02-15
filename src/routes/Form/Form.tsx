@@ -5,22 +5,40 @@ import SelectInput from './components/Select';
 import { FormLogic } from './FormLogic';
 import { useTheme } from '@mui/material/styles';
 import useGlobalMediaQuery from '../../hook/useGlobalMediaQuery'
+import RadioButtonsGroup from './components/Radio';
+import RadioInput from './components/Radio';
+import { Grid } from '@mui/material';
 
 export default function Form() {
     // const c = useMainContext();
-    const {country, setCountry, itemsArray, city, setCity, disableCity} = FormLogic()
+    const p = FormLogic()
     const theme = useTheme();
-    const {sm} = useGlobalMediaQuery()
+    const {sm, md} = useGlobalMediaQuery()
+    const prueba: any = [
+      {label: 'prueba uno', value: 'p1'},
+      {label: 'prueba dos', value: 'p2'},
+      {label: 'prueba tres', value: 'p3'}
+    ]
+
+    console.log('FORM', {'product': p.product, 'city': p.city, 'country': p.country})
+
 
     useEffect(() => {
-        setCity('')
-    },[country])
+        p.setCity('')
+    },[p.country])
 
   return (
       <Box sx={{display: 'flex', justifyContent: 'center'}}>
-        <Box sx={{width: sm ? '90%' : '40%',}}>
-            <SelectInput mt='20px' label='Pais' value={country} handleChange={setCountry} items={itemsArray.country}/>
-            <SelectInput mt='20px' disable={disableCity} label='Ciudad' value={city} handleChange={setCity} items={itemsArray.city}/>
+        <Box sx={{width: sm ? '90%' : '60%',}}>
+          <Grid container style={{display: 'flex', justifyContent: 'center'}}>
+            <Grid item xs={12} md={5.8} style={{margin: md ? '0px 10px 0px 0px': ''}}>
+              <SelectInput mt='20px' label='Pais' value={p.country} handleChange={p.setCountry} items={p.itemsArray.country}/>
+            </Grid>
+            <Grid item xs={12} md={5.8} style={{margin: md ? '0px 0px 0px 10px': ''}}>
+              <SelectInput mt='20px' disable={p.disableCity} label='Ciudad' value={p.city} handleChange={p.setCity} items={p.itemsArray.city}/>
+            </Grid>
+          </Grid>
+          <RadioInput mt='20px' options={prueba} label='Producto' value={p.product} handleChange={p.setProduct}/>
         </Box>
       </Box>
   );

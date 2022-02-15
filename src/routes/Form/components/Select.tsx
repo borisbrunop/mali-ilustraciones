@@ -2,26 +2,10 @@ import * as React from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import { useTheme } from '@mui/material/styles';
 import { makeStyles } from '@material-ui/styles';
 import { SelectStyles } from './useStyles';
-
-// const useStyles = makeStyles((theme) => ({
-//     selected: {
-//     },
-//     rootMenuItem: {
-//       "&$selected": {
-//         backgroundColor: "red",
-//           "&:hover": {
-//             backgroundColor: "green"
-//            }
-//         },
-//       '&:hover':{
-//         backgroundColor:'blue'
-//       }
-//     }
-//   }));
 
 interface ItemsTypes {
     value: string, 
@@ -34,14 +18,14 @@ interface SelectInputTypes {
     items: ItemsTypes[],
     label: string,
     disable?: boolean,
-    mt?: string
+    mt?: string,
 }
 
 export default function SelectInput({value, handleChange, items = [], label, disable = false, mt = '0px'}: SelectInputTypes) {
     const theme = useTheme();
-    const styles = makeStyles(() => ({
+    const stylesClass = makeStyles(() => ({
         underline: {
-            color: theme.palette.main.text2,
+            color: theme.palette.main.text1,
             '&:after': {
                 borderBottom: `2px solid ${theme.palette.main.text2}`
             },
@@ -61,9 +45,12 @@ export default function SelectInput({value, handleChange, items = [], label, dis
     }));
 
     const classesSelect = SelectStyles(theme);
-    const classes = styles();
+    const classes = stylesClass();
   return (
-    <FormControl variant="standard" sx={{minWidth: 120, marginTop: mt,  width: '100%', padding: '0px, 10px, 0px 10px' }}>
+    <FormControl 
+        variant="standard" 
+        sx={{minWidth: 120, marginTop: mt,  width: '100%'}}
+    >
         <InputLabel className={classes.inputLabelRoot} id="demo-simple-select-standard-label">{label}</InputLabel>
         <Select
         labelId="demo-simple-select-standard-label"

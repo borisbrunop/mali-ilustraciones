@@ -4,6 +4,7 @@ import GalleryLogic from '../routes/Gallery/GalleryLogic';
 import { createTheme } from '@mui/material/styles';
 import getDesignTokens from '../uiModels/DesignTokens'
 import FormLogic from '../routes/Form/useForm';
+import useMenu from './useMenu';
 
 export default () => useContext(Context)
 
@@ -11,6 +12,7 @@ export const ContextApp = () => {
     // const {loading, urls, handlePathName} = GalleryLogic()
     const {countries} = FormLogic()
     const {loadingPhotos, loadingComponents, urls, handlePathName, components} = GalleryLogic()
+    const { menus } = useMenu()
 
     const [mode, setMode] = React.useState<'light' | 'dark'>('light');
     let mainContext = {
@@ -25,7 +27,8 @@ export const ContextApp = () => {
             urls,
             loadingGalleryPhotos: loadingPhotos,
             loadingGalleryComponent: loadingComponents,
-            components
+            components,
+            menus
         }
       };
     const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
