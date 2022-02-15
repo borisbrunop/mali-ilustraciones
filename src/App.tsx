@@ -49,16 +49,6 @@ export default function App() {
           <div style={{width: width > 1400 ? '1400px' : '100%'}}>
             <AppBar/>
             <Routes>
-              {/* <Route
-                  path="*"
-                  element={<Navigate to="/404" />}
-              /> */}
-              {/* <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} 
-              <Route path="/collections" element={<Collection />} />  */}
-              {/* <Route path="/404" element={<Component404 />}/>
-              <Route path="/form" element={<Form />} />
-              <Route path="/" element={<Gallery />} /> */}
               {routeComponents}
             </Routes>
           </div>

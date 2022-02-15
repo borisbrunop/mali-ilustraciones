@@ -30,7 +30,7 @@ export default function useRoutes(menus: Menus[]) {
         }
     ];
 
-    const routes = [...routesStatic.filter((item) => menus.find((inner) => inner.path === item.path)),{path: '*',component: <Component404 />,}]
+    const routes = [...routesStatic.filter((item) => menus.find((inner) => inner.path === item.path))]
 
     return { routes }
 }
