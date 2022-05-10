@@ -33,7 +33,7 @@ export default function useMenuMapper(classes: any, theme: any, menus: Menus[]) 
             component: <DashboardOutlinedIcon className={classes.svg} />
         },
         {
-            path: '/form',
+            path: '/products',
             component: <AttachMoneyIcon className={classes.svg} />
         },
     ]
