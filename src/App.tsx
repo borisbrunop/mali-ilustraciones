@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import Home from './routes/Home/Home';
 import About from './routes/About/About';
-import Form from './routes/Form/Form';
+import Form from './routes/Products/Products';
 import Gallery from './routes/Gallery/Gallery';
 import Collection from './routes/Collections/Collection'
 import { Routes, Route, Navigate} from "react-router-dom";

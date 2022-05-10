@@ -2,7 +2,7 @@ import React from 'react'
 import Home from '../routes/Home/Home';
 import About from '../routes/About/About';
 import Collections from '../routes/Collections/Collection';
-import Form from '../routes/Form/Form';
+import Products from '../routes/Products/Products';
 import Gallery from '../routes/Gallery/Gallery';
 import useMainContext from './useMainContext';
 import Component404 from '../routes/Component404/Component404';
@@ -17,8 +17,8 @@ export default function useRoutes(menus: Menus[]) {
             component: <Gallery />,
         },
         {
-            path: '/form',
-            component: <Form />,
+            path: '/products',
+            component: <Products />,
         },
         {
             path: '/collections',

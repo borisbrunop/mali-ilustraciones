@@ -3,5 +3,5 @@ export enum PATHNAMES {
     COLLECTIONS = 1,
     HOME = 2,
     GALLERY = 3,
-    FORM = 4,
+    PRODUCT = 4,
 }

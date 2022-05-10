@@ -16,7 +16,7 @@ export default function Galleryogic() {
             case '/collections': return PATHNAMES.COLLECTIONS
             case '/': return PATHNAMES.HOME
             case '/gallery': return PATHNAMES.GALLERY
-            case '/form': return PATHNAMES.FORM
+            case '/products': return PATHNAMES.PRODUCT
         }
     }
 
