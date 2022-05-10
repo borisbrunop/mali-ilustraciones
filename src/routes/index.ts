@@ -1,6 +1,6 @@
 export * from './Home'
 export * from './About'
 export * from './Collections'
-export * from './Form'
+export * from './Products'
 export * from './Gallery'
 export * from './Component404'

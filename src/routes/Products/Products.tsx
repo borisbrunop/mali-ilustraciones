@@ -9,7 +9,7 @@ import RadioButtonsGroup from './components/Radio';
 import RadioInput from './components/Radio';
 import { Grid } from '@mui/material';
 
-export default function Form() {
+export default function Products() {
     // const c = useMainContext();
     const p = FormLogic()
     const theme = useTheme();
