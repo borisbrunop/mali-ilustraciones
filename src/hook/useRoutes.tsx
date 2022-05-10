@@ -8,6 +8,7 @@ import useMainContext from './useMainContext';
 import Component404 from '../routes/Component404/Component404';
 import { UNSAFE_RouteContext } from 'react-router';
 import {Menus} from '../bussiness/interfaces'
+import { Loading } from '../components/Loading';
 
 export default function useRoutes(menus: Menus[]) {
     // const c = useMainContext();
@@ -30,7 +31,7 @@ export default function useRoutes(menus: Menus[]) {
         }
     ];
 
-    const routes = [...routesStatic.filter((item) => menus.find((inner) => inner.path === item.path)),{path: '*',component: <Component404 />,}]
+    const routes = [...routesStatic.filter((item) => menus.find((inner) => inner.path === item.path)),{path: '*',component: menus[0] ? <Component404 /> : <Loading /> ,}]
 
     return { routes }
 }
