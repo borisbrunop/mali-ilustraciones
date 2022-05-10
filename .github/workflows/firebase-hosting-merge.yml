@@ -15,6 +15,6 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MALI_ILUSTRACIONES }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MALI_ILUSTRACIONES_6D4AE }}'
           channelId: live
-          projectId: mali-ilustraciones
+          projectId: mali-ilustraciones-6d4ae
