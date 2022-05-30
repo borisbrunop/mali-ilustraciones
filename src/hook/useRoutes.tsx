@@ -4,9 +4,9 @@ import About from '../routes/About/About';
 import Collections from '../routes/Collections/Collection';
 import Products from '../routes/Products/Products';
 import Gallery from '../routes/Gallery/Gallery';
+import Cart from '../routes/Cart/Cart';
 import useMainContext from './useMainContext';
 import Component404 from '../routes/Component404/Component404';
-import { UNSAFE_RouteContext } from 'react-router';
 import {Menus} from '../bussiness/interfaces'
 import { Loading } from '../components/Loading';
 
@@ -28,6 +28,10 @@ export default function useRoutes(menus: Menus[]) {
         {
             path: '/about',
             component: <About />,
+        },
+        {
+            path: '/cart',
+            component: <Cart />,
         }
     ];
 

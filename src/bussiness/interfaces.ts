@@ -36,8 +36,38 @@ export interface Countries {
     name: string,
     cities: Cities[]
 }
+export interface Products {
+    name: string,
+    price: number,
+    order: number,
+    categories: string[],
+    imgUrls: string[],
+    description: string
+}
+export interface Categories {
+    name: string,
+    key: string,
+    url: string,
+    description_card: string,
+    description_page: string,
+    countries: string[]
+}
 export interface Components {
     title: string, 
     description: string
+}
+
+export interface CartItems {
+    id: string,
+    category: string,
+    amount: number,
+    description: string,
+    products: Products[],
+    quantity: number
+}
+
+export interface CartType {
+    items: CartItems[],
+    message: string
 }
 

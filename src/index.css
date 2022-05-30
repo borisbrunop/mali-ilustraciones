@@ -33,3 +33,7 @@ html {
   url("./uiModels/fonts/Cocomat-Light-trial.ttf") format("truetype");
   /* font-weight: bold; */
   }
+
+  .MuiFormControl-fullWidth .MuiInputBase-formControl{
+    font-family: "Roboto" !important
+  }

@@ -10,7 +10,8 @@ import { useTheme } from '@mui/material/styles';
 import {useWindowDimensions} from '../../hook/useWindowDimensions'
 import useThemePalette from '../../hook/useThemePalette'
 import usePalette from '../../hook/useMainContext'
-import { Menus } from '../../bussiness/interfaces';
+import { CartType, Menus } from '../../bussiness/interfaces';
+import Notification from '../Notification';
 
 
 interface Pages {
@@ -26,10 +27,11 @@ const pages: Pages[] = [
 ];
 
 interface DesktopNavBarTypes {
-    menus: Menus[]
+    menus: Menus[],
+    cart: CartType | undefined
 }
 
-const DesktopNavBar = ({menus}: DesktopNavBarTypes) => {
+const DesktopNavBar = ({menus, cart}: DesktopNavBarTypes) => {
     const navigate = useNavigate()
     const theme = useTheme();
     const colors = useThemePalette()
@@ -43,6 +45,7 @@ const DesktopNavBar = ({menus}: DesktopNavBarTypes) => {
             width: '100%',
             position: 'fixed',
             top: 0,
+            zIndex: '100',
             // backgroundColor: theme.palette.main.background,
             height: '65px'
         }}>
@@ -73,13 +76,24 @@ const DesktopNavBar = ({menus}: DesktopNavBarTypes) => {
                         </Box>
                         <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center'}}>
                             {menus.map((page: Menus) => (
+                                <>
                                 <Button
                                     key={page.name}
                                     onClick={(event: any) => navigate(page.path)}
-                                    sx={{ my: 2, color: theme.palette.main.text1, display: 'block', marginRight: '15px', fontWeight: 'bold'}}
-                                >
-                                    {page.name}
+                                    sx={{ my: 2, color: theme.palette.main.text1, display: 'block', marginRight: '15px', fontWeight: 'bold', position: 'relative'}}
+                                    >
+                                    {/* {page.name} */}
+                                    {(page.path === '/cart' && cart?.items?.length !== 0 && cart) ?
+                                        // <Notification amount={cart?.items?.length || 0} styles={{bottom: '0px', right: '0px'}}/>
+                                        <div style={{display: 'flex'}}>
+                                            <p>{page.name}</p>
+                                            <p style={{fontFamily: 'Roboto', paddingLeft: '5px'}}>{`(${cart?.items?.length.toString()})`}</p>
+                                        </div>
+                                    :
+                                    <p style={{fontFamily: 'Cocomat'}}>{page.name}</p>
+                                    }
                                 </Button>
+                                </>
                             ))}
                         </Box>
                     <NightModeSwitch />

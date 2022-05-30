@@ -8,10 +8,11 @@ import { useTheme } from '@mui/material/styles';
 import { useStyles } from './useStyles'
 import useMenuMapper from './MenuMapper';
 import useGlobalMediaQuery from '../../hook/useGlobalMediaQuery';
-import {Menus} from '../../bussiness/interfaces';
+import {CartType, Menus} from '../../bussiness/interfaces';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { makeStyles } from '@material-ui/styles';
+import Notification from '../Notification';
 
 const styles = makeStyles(() => ({
     icon: {
@@ -34,10 +35,11 @@ const styles = makeStyles(() => ({
 
 interface NavigationTypes {
     handlePathName: (pathname: string) => void,
-    menus: Menus[]
+    menus: Menus[],
+    cart: CartType | undefined
   }
 
-export default function SimpleBottomNavigation({handlePathName, menus}: NavigationTypes) {
+export default function SimpleBottomNavigation({handlePathName, menus, cart}: NavigationTypes) {
     const location = useLocation();
     const navBarValue = handlePathName(location.pathname)
     const theme = useTheme();
@@ -53,7 +55,7 @@ export default function SimpleBottomNavigation({handlePathName, menus}: Navigati
     const {sm} = useGlobalMediaQuery()
     
     return (
-        <Box sx={{ width: '100%', position: 'fixed', bottom: 0 }}>
+        <Box sx={{ width: '100%', position: 'fixed', bottom: 0, zIndex: 100 }}>
             <BottomNavigation
                 showLabels={false}
                 value={value}
@@ -62,13 +64,18 @@ export default function SimpleBottomNavigation({handlePathName, menus}: Navigati
                 }}
                 style={{backgroundColor: theme.palette.main.background}}
             >
-                {newMenus.map((menu: any) => 
+                {newMenus.map((menu: any) =>
+                <>
                     <BottomNavigationAction
                     key={menu?.id}
                     className={useClasses.mySelector}
                     style={{color: theme.palette.main.text1, marginBottom: '5px'}}
                     icon={menu?.component} 
                     onClick={(event: any) => navigate(menu.path)}/>
+                    {(menu.path === '/cart' && cart?.items?.length !== 0 && cart) &&
+                        <Notification amount={cart?.items?.length || 0} styles={{bottom: '1px', right: '20px'}}/>
+                    }
+                </>
                 )}
             </BottomNavigation>
         </Box>

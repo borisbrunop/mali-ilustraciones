@@ -3,6 +3,8 @@ import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import {Menus} from '../../bussiness/interfaces';
 
 export default function useMenuMapper(classes: any, theme: any, menus: Menus[]) {
@@ -34,7 +36,11 @@ export default function useMenuMapper(classes: any, theme: any, menus: Menus[]) 
         },
         {
             path: '/products',
-            component: <AttachMoneyIcon className={classes.svg} />
+            component: <DashboardIcon className={classes.svg} />
+        },
+        {
+            path: '/cart',
+            component: <ShoppingCartIcon className={classes.svg} />
         },
     ]
 

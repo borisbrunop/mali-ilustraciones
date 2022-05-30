@@ -1,6 +1,6 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState, useEffect } from 'react';
 import useMainContext from '../../hook/useMainContext'
-import {Countries, Cities} from '../../bussiness/interfaces'
+import {Countries, Cities, Categories, Products} from '../../bussiness/interfaces'
 
 interface pTypes {
   country: string, 
@@ -9,14 +9,15 @@ interface pTypes {
   city: string, 
   setCity: React.Dispatch<React.SetStateAction<string>>, 
   disableCity: boolean, 
-  product: string, 
-  setProduct: React.Dispatch<React.SetStateAction<string>>, 
+  categories: Categories[],
+  products: Products[],
 }
 
 export const FormLogic = () => {
     const [country, setCountry] = useState<string>('')
     const [city, setCity] = useState<string>('')
-    const [product, setProduct] = useState<string>('')
+    const [categories, setCategories] = useState<any>([])
+    // const [category, setCategory] = useState<string>('')
     const c = useMainContext();
 
     const disableCity = useMemo(() => !country,[country])
@@ -30,6 +31,14 @@ export const FormLogic = () => {
 
     const itemsArray:any = {city: finalCities, country: itemsCo}
 
+    useEffect(() => {
+      c.actions.setCountry(country)
+      setCategories(c.states.categories.filter((cat: Categories) => cat.countries?.includes(country)))
+    }, [country])
+
+    // console.log('CATEGORIES TO BE DISPLAYED', categories)
+    // console.log('COUNTRY FROM CONTEXT', c.states.country)
+
     const p : pTypes = {    
       country, 
       setCountry, 
@@ -37,8 +46,8 @@ export const FormLogic = () => {
       city, 
       setCity, 
       disableCity, 
-      product, 
-      setProduct
+      categories: categories,
+      products: c.states.products
     }
   return p;
 }

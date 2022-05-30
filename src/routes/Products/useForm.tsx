@@ -13,7 +13,5 @@ export default function FormLogic() {
         })
     }, [])
 
-    console.log('COUNTRIES', countries)
-
 return {countries, loading};
 }

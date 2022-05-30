@@ -9,9 +9,8 @@ import useMainContext from '../../hook/useMainContext';
 export default function AppBar() {
   const {sm} = useGlobalMediaQuery()
   const c = useMainContext();
-  console.log('MENUS IN APPBAR', c.states.menus)
 
   return (<>{
-    sm ? (<PhoneNavBar handlePathName={c.actions.handlePathName} menus={c.states.menus}/>):(<DesktopNavBar menus={c.states.menus}/>)
+    sm ? (<PhoneNavBar cart={c.states.cart} handlePathName={c.actions.handlePathName} menus={c.states.menus}/>):(<DesktopNavBar cart={c.states.cart} menus={c.states.menus}/>)
   }</>);
 }

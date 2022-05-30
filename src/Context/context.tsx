@@ -1,10 +1,12 @@
 import { createContext } from 'react'
-import {Countries, GalleryPhotos, Components, Menus} from '../bussiness/interfaces'
+import {Countries, GalleryPhotos, Components, Menus, Products, Categories, CartType} from '../bussiness/interfaces'
 import { PATHNAMES } from '../const/Pathnames'
 
 interface ActionsTypes {
     toggleColorMode: () => void,
-    handlePathName: (pathname: string) => PATHNAMES | undefined
+    handlePathName: (pathname: string) => PATHNAMES | undefined,
+    setCountry: React.Dispatch<React.SetStateAction<string>>,
+    setCart: any
 }
 interface StatesTypes {
     countries: Countries[],
@@ -12,7 +14,11 @@ interface StatesTypes {
     loadingGalleryPhotos: boolean,
     loadingGalleryComponent: boolean,
     components: Components,
-    menus:   Menus[]
+    menus:   Menus[],
+    products:   Products[],
+    categories:   Categories[],
+    country: string,
+    cart: CartType | undefined
 }
 
 interface ContextTypes {
@@ -23,7 +29,9 @@ interface ContextTypes {
 const Context = createContext({
     actions: {
         toggleColorMode: () => {},
-        handlePathName: () => {}
+        handlePathName: () => {},
+        setCountry: () => {},
+        setCart: () => {}
     },
     states: {
         countries: [],
@@ -31,7 +39,11 @@ const Context = createContext({
         loadingGalleryPhotos: true,
         loadingGalleryComponent: true,
         components: {title: '', description: ''},
-        menus: []
+        menus: [],
+        categories: [],
+        products: [],
+        country: '',
+        cart: undefined
     }
     } as ContextTypes);
 
